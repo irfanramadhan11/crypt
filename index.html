@@ -86,8 +86,8 @@
       flex-direction: column;
       position: relative;
       z-index: 1;
-      padding: 12px;
-      padding-bottom: max(60px, calc(60px + env(safe-area-inset-bottom)));
+      padding: 10px;
+      padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom)));
       width: 100%;
       height: 100vh;
       overflow: hidden;
@@ -95,7 +95,7 @@
 
     .header {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       flex-shrink: 0;
     }
 
@@ -103,16 +103,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .logo-icon {
-      font-size: 28px;
-      color: #ffffff;
+      margin-bottom: 2px;
     }
 
     .logo-text {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       letter-spacing: -0.5px;
       color: #ffffff;
@@ -120,7 +115,7 @@
 
     .tagline {
       color: var(--color-text-secondary);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 400;
       letter-spacing: 0.3px;
     }
@@ -128,7 +123,7 @@
     .main-card {
       background: var(--color-bg-card);
       border-radius: 20px;
-      padding: 12px;
+      padding: 10px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
       border: 1px solid var(--color-border);
       backdrop-filter: blur(20px);
@@ -173,13 +168,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
+      gap: 2px;
       text-align: center;
-      min-height: 48px;
+      min-height: 42px;
     }
 
     .algo-icon {
-      font-size: 20px;
+      font-size: 16px;
       transition: transform 0.3s ease;
     }
 
@@ -214,25 +209,25 @@
     .translation-container {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       flex: 1;
       min-height: 0;
       overflow: hidden;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .text-panel {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--color-border);
       border-radius: 12px;
-      padding: 8px;
-      padding-bottom: 32px;
+      padding: 7px;
+      padding-bottom: 30px;
       position: relative;
       display: flex;
       flex-direction: column;
       flex: 1;
       min-height: 0;
-      max-height: 170px;
+      max-height: 160px;
       transition: all 0.3s ease;
     }
 
@@ -241,20 +236,20 @@
     }
 
     .panel-label {
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       color: var(--color-text-secondary);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       flex-shrink: 0;
     }
 
     .panel-label-icon {
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .text-input, .text-output {
@@ -296,14 +291,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin: 8px 0;
+      gap: 8px;
+      margin: 6px 0;
       flex-shrink: 0;
     }
 
     .swap-btn {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       background: #ffffff;
       border: none;
       border-radius: 50%;
@@ -311,7 +306,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 16px;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
       transform: rotate(90deg);
@@ -360,17 +355,17 @@
     }
 
     .controls-section {
-      padding-top: 6px;
-      padding-bottom: 4px;
-      margin-bottom: 6px;
+      padding-top: 4px;
+      padding-bottom: 3px;
+      margin-bottom: 4px;
       border-top: 1px solid var(--color-border);
       flex-shrink: 0;
     }
 
     .control-group {
       display: flex;
-      gap: 10px;
-      margin-bottom: 6px;
+      gap: 8px;
+      margin-bottom: 4px;
     }
 
     .control-item {
@@ -389,13 +384,13 @@
     }
 
     .control-input {
-      padding: 8px 10px;
+      padding: 7px 9px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--color-border);
       border-radius: 8px;
       color: var(--color-text-primary);
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 11px;
       outline: none;
       transition: all 0.3s ease;
     }
@@ -410,17 +405,17 @@
       justify-content: center;
       gap: 8px;
       flex-shrink: 0;
-      padding-bottom: 8px;
+      padding-bottom: 0;
     }
 
     .action-btn {
-      padding: 10px 28px;
+      padding: 9px 24px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--color-border);
       border-radius: 10px;
       color: var(--color-text-primary);
       font-family: var(--font-display);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -428,7 +423,7 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .action-btn:active {
