@@ -44,6 +44,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
+      height: 100vh;
     }
 
     /* Animated Background Orbs */
@@ -86,7 +87,8 @@
       position: relative;
       z-index: 1;
       padding: 12px;
-      max-height: 100vh;
+      width: 100%;
+      height: 100vh;
       overflow: hidden;
     }
 
@@ -223,13 +225,12 @@
       border: 1px solid var(--color-border);
       border-radius: 12px;
       padding: 12px;
-      padding-bottom: 32px;
+      padding-bottom: 40px;
       position: relative;
       display: flex;
       flex-direction: column;
       flex: 1;
-      min-height: 120px;
-      max-height: 180px;
+      min-height: 0;
       transition: all 0.3s ease;
     }
 
@@ -558,7 +559,6 @@
         padding: 24px;
         padding-bottom: 40px;
         min-height: 200px;
-        max-height: none;
       }
 
       .text-input, .text-output {
