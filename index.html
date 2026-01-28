@@ -102,8 +102,13 @@
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 2px;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
     }
 
     .logo-text {
@@ -174,7 +179,8 @@
     }
 
     .algo-icon {
-      font-size: 16px;
+      width: 16px;
+      height: 16px;
       transition: transform 0.3s ease;
     }
 
@@ -204,6 +210,10 @@
 
     .algo-btn.active .algo-desc {
       opacity: 0.7;
+    }
+
+    .algo-btn.active .algo-icon {
+      filter: brightness(0);
     }
 
     .translation-container {
@@ -249,7 +259,8 @@
     }
 
     .panel-label-icon {
-      font-size: 11px;
+      width: 11px;
+      height: 11px;
     }
 
     .text-input, .text-output {
@@ -306,52 +317,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+    }
+
+    .swap-btn svg {
+      width: 18px;
+      height: 18px;
       transform: rotate(90deg);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .swap-btn:active {
-      transform: rotate(90deg) scale(0.9);
-    }
-
-    .action-mode-toggle {
-      display: flex;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      overflow: hidden;
-      padding: 4px;
-      gap: 4px;
-    }
-
-    .mode-btn {
-      padding: 10px 18px;
-      background: transparent;
-      border: none;
-      border-radius: 8px;
-      color: var(--color-text-secondary);
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .mode-btn.active {
-      background: rgba(255, 255, 255, 0.15);
-      color: var(--color-text-primary);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .mode-btn::before {
-      content: '';
-      font-size: 14px;
+      transform: scale(0.9);
     }
 
     .controls-section {
@@ -435,10 +413,6 @@
       border-color: rgba(255, 255, 255, 0.3);
     }
 
-    .btn-icon {
-      margin-right: 6px;
-    }
-
     .copy-btn {
       position: absolute;
       top: 10px;
@@ -453,8 +427,12 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      font-size: 14px;
       z-index: 10;
+    }
+
+    .copy-btn svg {
+      width: 14px;
+      height: 14px;
     }
 
     .copy-btn:active {
@@ -496,6 +474,11 @@
       color: #ffffff;
     }
 
+    .toast-icon {
+      width: 16px;
+      height: 16px;
+    }
+
     /* Desktop responsive */
     @media (min-width: 769px) {
       .app-container {
@@ -509,7 +492,8 @@
       }
 
       .logo-icon {
-        font-size: 42px;
+        width: 36px;
+        height: 36px;
       }
 
       .logo-text {
@@ -537,7 +521,8 @@
       }
 
       .algo-icon {
-        font-size: 24px;
+        width: 24px;
+        height: 24px;
       }
 
       .algo-name {
@@ -572,16 +557,20 @@
       .swap-btn {
         width: 56px;
         height: 56px;
-        font-size: 24px;
+      }
+
+      .swap-btn svg {
+        width: 28px;
+        height: 28px;
         transform: rotate(0deg);
       }
 
-      .swap-btn:hover {
-        transform: rotate(180deg) scale(1.1);
+      .swap-btn:hover svg {
+        transform: rotate(180deg);
       }
 
       .swap-btn:active {
-        transform: rotate(180deg) scale(0.95);
+        transform: scale(0.95);
       }
 
       .controls-section {
@@ -640,6 +629,11 @@
   <div class="app-container">
     <header class="header">
       <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <span class="logo-text">CryptoFlow</span>
       </div>
       <p class="tagline">Algoritma Enkripsi Standar Industri</p>
@@ -648,37 +642,59 @@
     <main class="main-card">
         <div class="algorithm-selector">
             <button class="algo-btn active" data-algo="caesar">
-                <span class="algo-icon">🔤</span>
+                <svg class="algo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M4 7V17M8 7V17M12 7V17M16 7V17M20 7V17" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M2 5H22M2 19H22" stroke-width="2" stroke-linecap="round"/>
+                </svg>
                 <span class="algo-name">Caesar</span>
                 <span class="algo-desc">Classic</span>
             </button>
 
             <button class="algo-btn" data-algo="base64">
-                <span class="algo-icon">📦</span>
+                <svg class="algo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="2"/>
+                  <path d="M9 9H15M9 12H15M9 15H12" stroke-width="2" stroke-linecap="round"/>
+                </svg>
                 <span class="algo-name">Base64</span>
                 <span class="algo-desc">Encoding</span>
             </button>
 
             <button class="algo-btn" data-algo="rot13">
-                <span class="algo-icon">🔁</span>
+                <svg class="algo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke-width="2"/>
+                  <path d="M12 8V16M8 12H16" stroke-width="2" stroke-linecap="round"/>
+                </svg>
                 <span class="algo-name">ROT13</span>
                 <span class="algo-desc">Popular</span>
             </button>
 
             <button class="algo-btn" data-algo="vigenere">
-                <span class="algo-icon">🔐</span>
+                <svg class="algo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2"/>
+                  <path d="M12 11V7M12 7C12 5.34315 10.6569 4 9 4C7.34315 4 6 5.34315 6 7H8C8 6.44772 8.44772 6 9 6C9.55228 6 10 6.44772 10 7M12 7C12 5.34315 13.3431 4 15 4C16.6569 4 18 5.34315 18 7H16C16 6.44772 15.5523 6 15 6C14.4477 6 14 6.44772 14 7" stroke-width="2" stroke-linecap="round"/>
+                </svg>
                 <span class="algo-name">Vigenère</span>
                 <span class="algo-desc">Key Cipher</span>
             </button>
 
             <button class="algo-btn" data-algo="morse">
-                <span class="algo-icon">📡</span>
+                <svg class="algo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                  <circle cx="8" cy="17" r="1" fill="currentColor"/>
+                  <circle cx="16" cy="17" r="1" fill="currentColor"/>
+                  <line x1="6" y1="21" x2="10" y2="21" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="14" y1="21" x2="18" y2="21" stroke-width="2" stroke-linecap="round"/>
+                </svg>
                 <span class="algo-name">Morse</span>
                 <span class="algo-desc">Dot-dash</span>
             </button>
 
             <button class="algo-btn" data-algo="hex">
-                <span class="algo-icon">🔢</span>
+                <svg class="algo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 9H11M13 9H15M9 12H11M13 12H15M9 15H15" stroke-width="2" stroke-linecap="round"/>
+                </svg>
                 <span class="algo-name">Hex</span>
                 <span class="algo-desc">Base-16</span>
             </button>
@@ -687,7 +703,10 @@
       <div class="translation-container">
         <div class="text-panel" id="inputPanel">
           <div class="panel-label">
-            <span class="panel-label-icon">📝</span>
+            <svg class="panel-label-icon" id="inputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M11 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H16C17.1046 20 18 19.1046 18 18V13" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18.5 2.5C19.3284 1.67157 20.6716 1.67157 21.5 2.5C22.3284 3.32843 22.3284 4.67157 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <span id="inputLabel">PLAIN TEXT</span>
           </div>
           <textarea 
@@ -697,16 +716,29 @@
             spellcheck="false"
           ></textarea>
           <div class="char-count" id="inputCount">0 chars</div>
-          <button class="copy-btn" id="copyInput">📋</button>
+          <button class="copy-btn" id="copyInput">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke-width="2"/>
+              <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke-width="2"/>
+            </svg>
+          </button>
         </div>
 
         <div class="swap-section">
-          <button class="swap-btn" id="swapBtn">🔄</button>
+          <button class="swap-btn" id="swapBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M7 16V4M7 4L3 8M7 4L11 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17 8V20M17 20L21 16M17 20L13 16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
 
         <div class="text-panel" id="outputPanel">
           <div class="panel-label">
-            <span class="panel-label-icon">🔒</span>
+            <svg class="panel-label-icon" id="outputIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2"/>
+              <path d="M12 11V7M12 7C12 5.34315 10.6569 4 9 4C7.34315 4 6 5.34315 6 7M12 7C12 5.34315 13.3431 4 15 4C16.6569 4 18 5.34315 18 7" stroke-width="2" stroke-linecap="round"/>
+            </svg>
             <span id="outputLabel">ENCRYPTED</span>
           </div>
           <textarea 
@@ -716,7 +748,12 @@
             readonly
           ></textarea>
           <div class="char-count" id="outputCount">0 chars</div>
-          <button class="copy-btn" id="copyOutput">📋</button>
+          <button class="copy-btn" id="copyOutput">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="9" y="9" width="13" height="13" rx="2" stroke-width="2"/>
+              <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke-width="2"/>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -731,6 +768,9 @@
 
       <div class="action-buttons">
         <button class="action-btn" id="clearBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 6H21M19 6V20C19 21 18 22 17 22H7C6 22 5 21 5 20V6M8 6V4C8 3 9 2 10 2H14C15 2 16 3 16 4V6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           <span>Hapus Semua</span>
         </button>
       </div>
@@ -738,7 +778,9 @@
   </div>
 
   <div class="status-toast" id="statusToast">
-    <span id="toastIcon">✓</span>
+    <svg class="toast-icon" id="toastIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
     <span id="toastText"></span>
   </div>
 
@@ -765,8 +807,16 @@
     const toastIcon = document.getElementById('toastIcon');
     const copyInputBtn = document.getElementById('copyInput');
     const copyOutputBtn = document.getElementById('copyOutput');
-    const inputPanelIcon = document.querySelector('#inputPanel .panel-label-icon');
-    const outputPanelIcon = document.querySelector('#outputPanel .panel-label-icon');
+    const inputIcon = document.getElementById('inputIcon');
+    const outputIcon = document.getElementById('outputIcon');
+
+    // SVG Icons
+    const icons = {
+      edit: `<path d="M11 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H16C17.1046 20 18 19.1046 18 18V13" stroke-width="2" stroke-linecap="round"/><path d="M18.5 2.5C19.3284 1.67157 20.6716 1.67157 21.5 2.5C22.3284 3.32843 22.3284 4.67157 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`,
+      lock: `<rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2"/><path d="M12 11V7M12 7C12 5.34315 10.6569 4 9 4C7.34315 4 6 5.34315 6 7M12 7C12 5.34315 13.3431 4 15 4C16.6569 4 18 5.34315 18 7" stroke-width="2" stroke-linecap="round"/>`,
+      check: `<path d="M20 6L9 17L4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`,
+      x: `<path d="M18 6L6 18M6 6L18 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`
+    };
 
     // Morse Code Dictionary
     const morseCode = {
@@ -817,7 +867,6 @@
         `;
         controlGroup.appendChild(div);
         
-        // Add event listener for auto-process on shift change
         setTimeout(() => {
           const shiftInput = document.getElementById('shiftInput');
           if (shiftInput) {
@@ -834,7 +883,6 @@
         `;
         controlGroup.appendChild(div);
         
-        // Add event listener for auto-process on key change
         setTimeout(() => {
           const keyInput = document.getElementById('vigenereKey');
           if (keyInput) {
@@ -846,7 +894,7 @@
       }
     }
 
-    // Update Labels
+    // Update Labels and Icons
     function updateLabels() {
       const isEncrypt = currentMode === 'encrypt';
       const isCode = ['morse', 'hex', 'base64'].includes(currentAlgorithm);
@@ -854,15 +902,14 @@
       inputLabel.textContent = isEncrypt ? 'PLAIN TEXT' : (isCode ? 'ENCODED' : 'ENCRYPTED');
       outputLabel.textContent = isEncrypt ? (isCode ? 'ENCODED' : 'ENCRYPTED') : 'PLAIN TEXT';
       
-      inputPanelIcon.textContent = isEncrypt ? '📝' : '🔒';
-      outputPanelIcon.textContent = isEncrypt ? '🔒' : '📝';
+      inputIcon.innerHTML = isEncrypt ? icons.edit : icons.lock;
+      outputIcon.innerHTML = isEncrypt ? icons.lock : icons.edit;
     }
 
     // Character Count
     inputText.addEventListener('input', () => {
       inputCount.textContent = `${inputText.value.length} chars`;
       
-      // Clear output when input is empty
       if (!inputText.value.trim()) {
         outputText.value = '';
         outputCount.textContent = '0 chars';
@@ -984,7 +1031,6 @@
     function processText() {
       const text = inputText.value;
       
-      // Handle empty input
       if (!text || !text.trim()) {
         outputText.value = '';
         outputCount.textContent = '0 chars';
@@ -1004,7 +1050,7 @@
             result = isDecrypt ? base64Decode(text) : base64Encode(text);
             break;
           case 'rot13':
-            result = rot13(text); // ROT13 is its own inverse
+            result = rot13(text);
             break;
           case 'vigenere':
             const key = document.getElementById('vigenereKey')?.value || 'KEY';
@@ -1043,11 +1089,12 @@
       }
       navigator.clipboard.writeText(text).then(() => {
         button.classList.add('copied');
-        button.textContent = '✓';
+        const originalHTML = button.innerHTML;
+        button.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width: 14px; height: 14px;">${icons.check}</svg>`;
         showToast('Copied!', false);
         setTimeout(() => {
           button.classList.remove('copied');
-          button.textContent = '📋';
+          button.innerHTML = originalHTML;
         }, 2000);
       }).catch(() => showToast('Copy failed', true));
     }
@@ -1055,7 +1102,7 @@
     // Toast
     function showToast(message, isError = false) {
       toastText.textContent = message;
-      toastIcon.textContent = isError ? '✗' : '✓';
+      toastIcon.innerHTML = isError ? icons.x : icons.check;
       statusToast.className = `status-toast show ${isError ? 'error' : ''}`;
       setTimeout(() => statusToast.classList.remove('show'), 2000);
     }
